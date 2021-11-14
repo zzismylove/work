@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var x=prompt("请输入一个数字");
+    for(;1;){
+    var y=parseInt(x);
+    if(Number.isFinite(y))
+    {
+    alert("你输入的数字平方后为："+y*y);
+    break;
+    }
+    else{
+       x = prompt("你未输入正确的数字，请重新输入：");
+    }
+} 
+    </script>
+    
+</body>
+</html>
