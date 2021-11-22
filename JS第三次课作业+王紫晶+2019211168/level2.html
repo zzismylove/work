@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+		<style>
+      	li {
+        	color:transparent;
+        }
+		</style>
+</head>
+<body>
+    <ul>
+        <li id="one">1</li>
+        <li id="two">2</li>
+        <li id="tree">3</li>
+        <li id="fore">4</li>
+        <li id="five">5</li>
+        <li id="six">6</li>
+        <li id="seven">7</li>
+        <li id="eight">8</li>
+        <li id="nine">9</li>
+        <li id="ten">10</li>
+    </ul>
+    <script>
+        
+        document.addEventListener('click',function(event){
+            let target=event.target;
+            switch(target.id){
+                case "one":
+                target.style.color="black";
+                    break;
+                case "two":
+                target.style.color="black";
+                    break;
+                case "tree":
+                target.style.color="black";
+                    break;
+                case "fore":
+                target.style.color="black";
+                    break;
+                case "five":
+                target.style.color="black";
+                    break;
+                case "six":
+                target.style.color="black";
+                    break;
+                case "seven":
+                target.style.color="black";
+                    break;
+                case "eight":
+                target.style.color="black";
+                    break;
+                case "nine":
+                target.style.color="black";
+                    break;
+                case "ten":
+                target.style.color="black";
+                    break;
+            }
+        })
+        let lis = document.getElementsByTagName('li');
+        for(let i=0;i<10;i++){
+            if(i%2!=0) lis[i].style.backgroundColor="green";
+            else
+            lis[i].style.backgroundColor="red";
+        }
+              
+        console.log(lis);
+
+    </script>
+</body>
+</html>

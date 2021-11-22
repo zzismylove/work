@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+       div{
+           width: 500px;
+           margin: 0 auto;
+       }
+       #btn{
+           margin-left: 20px;
+       }
+    </style>
+</head>
+<body>
+    <div>
+    <input type="text" id="txt" placeholder="请留言"><input type="button" value="确认" id="btn">
+    <ul id="ul"></ul>
+    </div>
+    <script>
+        var _txt = document.getElementById('txt');
+        var _btn = document.getElementById('btn');
+        var _ul = document.getElementById('ul');
+        _btn.onclick = function (){
+            //获取留言
+            var txt = _txt.value;
+            //创建li子节点
+            var _li = document.createElement('li');
+            //创建删除
+            var a = document.createElement('a');
+            //设置啊a的href属性
+            a.href = '#';
+            a.style.textDecoration="none";
+            a.style.marginLeft="10px";
+            a.innerText = '删除';
+            //把留言放到li里
+            _li.innerText = txt;
+            //把a放到留言后边
+            _li.appendChild(a);
+            //如果ul里面没有li则追加到ul里面有的话插入到最前面
+            if(_ul.children.length){
+                _ul.insertBefore(_li,_ul.firstChild);
+            }else{
+                _ul.appendChild(_li);
+            }    
+            a.onclick = function (){    
+                //a的父元素为li  移除li
+                a.parentNode.remove();
+            }
+            //清空里面的value
+            _txt.value = '';
+        }
+
+    </script>
+</body>
+</html>

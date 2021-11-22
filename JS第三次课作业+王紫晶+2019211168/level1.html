@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body{
+            margin:0;
+            padding:0;
+        }
+        .bt1{
+            width: 100px;
+            height: 60px;
+            background-color:red; 
+            margin-top: 50px;
+            margin-left: 500px;
+        }
+        .bt2{
+            width: 100px;
+            height: 60px;
+            background-color:green; 
+            margin-top:50px;
+            margin-left: 60px
+            
+        }
+        div{
+            width: 500px;
+            height: 300px;
+            background-color: pink;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p style="margin: 0;">窗前明月光，疑是地上霜</p>
+    </div>
+   <button class="bt1">主题</button>
+   <button class="bt2">字体</button>
+    <script>
+        var x = document.querySelector('.bt1');
+        var y = document.querySelector('.bt2'); 
+        var bgc=document.querySelector("div");
+        var aa =document.querySelector("div p")
+        let array1=["blue","pink","yellow"];
+        let index1=0;
+        let array2=["32px","15px","20px"];
+        let index2=0;
+        x.onclick=function(){
+            bgc.style.backgroundColor=array1[index1];
+            index1=(index1+1)%array1.length;
+        }
+        y.onclick=function(){
+         aa.style.fontSize=array2[index2];
+         index2=(index2+1)%array2.length;
+        }
+         
+    </script>
+    
+</body>
+</html>
