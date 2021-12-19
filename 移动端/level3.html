@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./font_3027447_rgjldxi6nmj/iconfont.css">
+    <script src="jquery-3.6.0.min.js"></script>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+        }
+        .lishi{
+            width: 100%;
+            height: 50px;
+            background-color:rgb(49,124,251);
+            text-align: center;
+            line-height: 50px;
+            font-weight: 600;
+            font-size: 20px;
+        }
+        .six{
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            background-color:white;
+        }
+        .two{
+           margin: 0 auto;
+        }
+       .lishi .iconfont{
+           float: right;
+           font-size: 40px;
+           color: white;
+
+       }
+
+       .five {
+           width: 100%;
+           position:absolute;
+           top:50px;
+           background-color:white;
+           text-align: center;
+           line-height: 40px;
+           overflow: hidden;
+           display: none;
+       }
+       .five div{
+        border-bottom: rgb(189, 187, 187) 1px dashed;
+        height: 40px;
+        
+       }
+</style>
+</head>
+<body>
+    <div class="lishi"><span>历史上的今天</span><span class= "iconfont">&#xe600;</span></div>
+    <div class="five"><div>电话区号查询</div><div>手机号查询</div><div>万年历查询</div><div>北京时间查询</div><div>IP地址查询</div></div>
+    <div class="six"><span class="two"></span><span class="tree"></span></div>
+    <table id="one">
+    </table>
+    <script>
+    var spn3=document.querySelector('.iconfont');
+    var I=0;
+    spn3.addEventListener('click',function(){
+        var x=document.querySelector('.five');
+        
+        I++;
+        console.log(I);
+        if(I%2==0){
+            x.style.cssText=`display:none`;
+        }
+        else{
+            x.style.cssText=`display:block`;
+        }
+    })
+    // spn3.addEventListener('click',function(){
+    //     var x=document.querySelector('.five');
+    //     x.style.cssText=`
+    //     display:none`;
+    // })
+    // spn3.addeonlick=function(){
+    //     var x=document.querySelector('.five');
+    //     x.style.display='block';
+    // }
+    var date=new Date();
+    var month=date.getMonth()+1;
+    var day=date.getDate();
+    var spn1=document.querySelector('.two');
+    var spn2=document.querySelector('.tree');
+    spn1.append(month+'月');
+    spn2.append(day+'日')
+    
+    $.get('https://api.oick.cn/lishi/api.php',function(data){
+        for(i in data.result){
+           var tr;
+           tr='<td>'+data.result[i].date+'&nbsp&nbsp&nbsp&nbsp'+'</td>'+'<td>'+data.result[i].title+'</td>',
+           $('#one').append('<tr>'+tr+'</tr>');
+       }
+       console.log(data,status);
+    }
+    )
+//     $.ajax({
+//     type: "get",
+//     url: "https://api.oick.cn/lishi/api.php",
+//     dataType: 'jsonp', // 设置返回值类型
+//     xhrFields: { withCredentials: true }, // 跨域携带cookie
+//     // data: {'month':month,'day':day},// 传递参数
+//     error:function(xhr,status){  // 错误处理
+//         console.log('error!');
+//        console.log(xhr,status);
+//     },
+//     success: function (data,status) {  // 获取结果
+//        for(i in data.result.songs){
+//            var tr;
+//            tr='<td>'+data.result.songs[i].name+'</td>'+'<td>'+data.result.songs[i].artists[0].name+'</td>',
+//            $('#one').append('<tr>'+tr+'</tr>');
+//        }
+//        console.log(data,status);
+//     }
+// })
+
+    </script>
+
+    
+</body>
+</html>

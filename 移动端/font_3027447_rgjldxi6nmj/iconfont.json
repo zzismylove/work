@@ -1,0 +1,16 @@
+{
+  "id": "3027447",
+  "name": "历史的今天",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "22770934",
+      "name": "三条杠",
+      "font_class": "santiaogang",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    }
+  ]
+}
