@@ -1,0 +1,23 @@
+{
+  "id": "3157306",
+  "name": "扩展",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "12976284",
+      "name": "口罩",
+      "font_class": "kouzhao1",
+      "unicode": "e728",
+      "unicode_decimal": 59176
+    },
+    {
+      "icon_id": "16687025",
+      "name": "圆圈，线框",
+      "font_class": "yuanquanxiankuang",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    }
+  ]
+}
