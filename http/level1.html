@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <!-- <link rel="shortcut icon" href="./favicon.ico"> -->
+  </head>
+
+  <body>
+    <input type="text" name="name" id="name" placeholder="帐号" />
+    <input type="password" name="pass" id="pass" placeholder="密码" />
+    自动登录<input type="checkbox" id="remember" />
+    <button type="button" onclick="login()">登陆</button>
+  </body>
+  <script src="./level1.js"></script>
+  <script>
+    // 登录方法  入参只是为自动登录服务的
+    const login = async (remname = '', rempass = '') => {
+      const name = remname ? remname : document.getElementById('name').value
+      const pass = rempass ? rempass : document.getElementById('pass').value
+      //是否勾选自动登录
+      const remember = document.getElementById('remember').checked
+      const response = await fetch('/post/login', {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          pass,
+          remember,
+        }),
+      })
+      const res = await response.json()
+      alert(res.msg)
+    }
+    
+    // 加载页面时检查是否存在自动登录的cookie,存在则自动调用登录方法
+    window.onload = () => {
+      const remember = getCookie('remember')
+      const name = getCookie('name')
+      const pass = getCookie('pass')
+      if (remember) {
+        login(name, pass)
+      }
+    }
+
+    // 获取html页面cookie方法
+    const getCookie = (name) => {
+      let result = document.cookie.match(
+        '(^|[^;]+)\\s*' + name + '\\s*=\\s*([^;]+)'
+      )
+      return result ? result.pop() : ''
+    }
+    
+  </script>
+</html>
